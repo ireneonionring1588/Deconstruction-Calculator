@@ -1,0 +1,143 @@
+
+:root {
+  --primary-color: #007b5e;
+  --accent-color: #f0f4f8;
+  --border-radius: 10px;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  background: #f9fafb;
+  color: #333;
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: center;       
+}
+
+h1, h2, h4 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+h1 { font-size: 28px; margin-bottom: 10px; }
+h2 { font-size: 24px; margin-bottom: 20px; }
+
+section {
+  background: #ffffff;
+  margin: 20px auto;
+  padding: 25px;
+  max-width: 900px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:hover,
+input[type="number"]:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 94, 0.1);
+}
+
+select:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 94, 0.15);
+}
+
+.calc-value {
+  display: block;         
+  color: #777;
+  font-style: italic;
+  margin-top: 6px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  margin-top: 70px;      
+  padding: 16px;
+  font-size: 18px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+button:hover {
+  background-color: #005f47;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#materialCheckboxContainer {
+  margin-top: 15px;
+  text-align: left;
+}
+#materialCheckboxContainer label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.material-group {
+  background-color: var(--accent-color);
+  padding: 25px;
+  margin: 35px 0;
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--primary-color);
+  text-align: left;       
+}
+.material-group h4 {
+  margin-bottom: 18px;
+  font-size: 20px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.field-row {
+  margin-bottom: 20px;     
+}
+
+#materialInputsContainer { margin-bottom: 60px; }
+
+.entry {
+  background-color: #e8f5f1;
+  border-left: 4px solid var(--primary-color);
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  section { padding: 20px; margin: 12px; }
+  label { font-size: 15px; }
+}

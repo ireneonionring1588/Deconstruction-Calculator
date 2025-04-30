@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deconstruction Material Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Deconstruction Material Tracker</h1>
+
+  <section class="form-section">
+    <label for="locationSelect">Select Material Location:</label>
+    <select id="locationSelect"></select>
+
+    <div id="materialCheckboxContainer"></div>
+  </section>
+
+  <section class="entries-section">
+    <h2>Material Entries</h2>
+    <form id="materialForm" onsubmit="handleSubmit(event)">
+      <div id="materialInputsContainer"></div>
+      <button type="submit">Submit All</button>
+    </form>
+    <div id="entryContainer"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
