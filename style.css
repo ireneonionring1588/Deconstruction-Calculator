@@ -136,6 +136,28 @@ button:hover {
   font-size: 16px;
 }
 
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 94, 0.1);
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 94, 0.15);
+}
+
 @media (max-width: 600px) {
   body { font-size: 16px; }
   section { padding: 20px; margin: 12px; }
