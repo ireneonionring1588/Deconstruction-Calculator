@@ -1,165 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 :root {
-  --primary-color: #007b5e;
-  --accent-color: #f0f4f8;
-  --border-radius: 10px;
-  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --pri-500: #027a62;
+  --pri-600: #026951;
+  --pri-100: #e6f4f1;
+
+  --g-900: #1e1e1e;
+  --g-700: #444;
+  --g-500: #767;
+  --g-200: #ddd;
+
+  --radius: 12px;
+  --dur: 180ms;
+  --progress-h: 10px;
+  --header-h: 110px;
 }
 
-body {
-  font-family: var(--font-main);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --g-900: #eaeaea;
+    --g-700: #c6c6c6;
+    --g-500: #9e9e9e;
+    --g-200: #444;
+    --pri-100: #034438;
+  }
+}
+
+/* ──────────── Base Reset ───────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
-  padding: 0;
-  background: #f9fafb;
-  color: #333;
-  font-size: 17px;
-  line-height: 1.6;
-  text-align: center;       
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  background: #f7f8f9;
+  color: var(--g-900);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h4 {
-  color: var(--primary-color);
-  margin-top: 0;
+/* ──────────── Header ───────────── */
+.page-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: #fff;
+  padding: 1.2rem 1rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-h1 { font-size: 28px; margin-bottom: 10px; }
-h2 { font-size: 24px; margin-bottom: 20px; }
-
-section {
-  background: #ffffff;
-  margin: 20px auto;
-  padding: 25px;
-  max-width: 900px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-}
-
-label {
-  display: block;
-  margin: 14px 0 6px;
+.page-header h1 {
+  margin: 0 0 0.6rem;
+  font-size: 1.7rem;
   font-weight: 600;
-  font-size: 16px;
-}
-
-select,
-input[type="number"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius);
-  box-sizing: border-box;
-  background-color: #fff;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-select:hover,
-input[type="number"]:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 123, 94, 0.1);
-}
-
-select:focus,
-input[type="number"]:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 94, 0.15);
-}
-
-.calc-value {
-  display: block;         
-  color: #777;
-  font-style: italic;
-  margin-top: 6px;
+  color: var(--pri-600);
   text-align: center;
 }
 
-button {
-  width: 100%;
-  margin-top: 70px;      
-  padding: 16px;
-  font-size: 18px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-}
-button:hover {
-  background-color: #005f47;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* ──────────── Progress Bar ───────────── */
+.progress {
+  height: var(--progress-h);
+  background: var(--g-200);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-#materialCheckboxContainer {
-  margin-top: 15px;
-  text-align: left;
+.progress__bar {
+  width: 0;
+  height: 100%;
+  background: var(--pri-500);
+  transition: width var(--dur) ease;
 }
-#materialCheckboxContainer label {
+
+/* ──────────── Main Layout ───────────── */
+main {
+  width: min(96%, 1024px);
+  margin-inline: auto;
+  padding: calc(var(--header-h) + 1.5rem) 0 4rem;
+}
+
+/* ──────────── Cards & Sections ───────────── */
+.card {
+  background: #fff;
+  border: none;
+  margin-top: 2.25rem;
+  padding: 2.2rem 2.4rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card__title {
+  font-size: 1.55rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: var(--pri-600);
+}
+
+/* ──────────── Question Blocks ───────────── */
+.question {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  margin-top: 1.6rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--g-200);
+}
+
+.question:first-child {
+  margin-top: 0.6rem;
+}
+
+.question:last-child {
+  border-bottom: none;
+}
+
+.question--single .question__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.question__num {
+  flex: 0 0 36px;
+  height: 36px;
+  line-height: 36px;
+  background: var(--pri-500);
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.question__body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ──────────── Form Inputs ───────────── */
+label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--g-700);
+}
+
+input, select {
+  width: 100%;
+  padding: 0.78rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid var(--g-200);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+
+input:hover, select:hover {
+  border-color: var(--pri-500);
+}
+
+input:focus, select:focus {
+  outline: 0;
+  border-color: var(--pri-600);
+  box-shadow: 0 0 0 0.14rem rgba(2, 122, 98, 0.18);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: grayscale(1);
+  cursor: pointer;
+}
+
+/* ──────────── Material Section ───────────── */
+#materialCheckboxContainer {
+  margin-top: 1.3rem;
+}
+
+.material-checkbox {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 16px;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px dashed var(--g-200);
+}
+
+.material-checkbox:last-child {
+  border-bottom: none;
+}
+
+.material-checkbox__input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--pri-600);
 }
 
 .material-group {
-  background-color: var(--accent-color);
-  padding: 25px;
-  margin: 35px 0;
-  border-radius: var(--border-radius);
-  border-left: 5px solid var(--primary-color);
-  text-align: left;       
+  position: relative;
+  margin-top: 2.5rem;
+  padding: 2.4rem 1.6rem 1.6rem;
+  background: var(--pri-100);
+  border-left: 4px solid var(--pri-600);
+  border-radius: var(--radius);
 }
-.material-group h4 {
-  margin-bottom: 18px;
-  font-size: 20px;
-  color: #2c3e50;
+
+.material-group + .material-group {
+  margin-top: 3rem;
+}
+
+.material-group__title {
+  margin-bottom: 1.45rem;
   text-align: center;
+  color: var(--pri-600);
 }
 
-.field-row {
-  margin-bottom: 20px;     
+.material-field {
+  margin-bottom: 1.45rem;
 }
 
-#materialInputsContainer { margin-bottom: 60px; }
-
-.entry {
-  background-color: #e8f5f1;
-  border-left: 4px solid var(--primary-color);
-  margin-top: 25px;
-  padding: 18px;
-  border-radius: var(--border-radius);
-  font-size: 16px;
+.material-field__calc {
+  font-size: 0.85rem;
+  color: var(--g-500);
+  text-align: right;
 }
 
-input[type="email"] {
+/* ──────────── Remove Button ───────────── */
+.material-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--g-700);
+  cursor: pointer;
+  transition: color var(--dur);
+}
+
+.material-remove:hover {
+  color: var(--pri-600);
+}
+
+/* ──────────── Submit Button ───────────── */
+.btn {
+  display: inline-block;
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius);
-  box-sizing: border-box;
-  background-color: #fff;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-top: 3rem;
+  padding: 0.98rem 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--pri-500);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--dur) ease, transform var(--dur) ease, box-shadow var(--dur) ease;
 }
 
-input[type="email"]:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 123, 94, 0.1);
+.btn:hover {
+  background: var(--pri-600);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(2, 122, 98, 0.18);
 }
 
-input[type="email"]:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 94, 0.15);
+.btn:active {
+  transform: none;
 }
 
-@media (max-width: 600px) {
-  body { font-size: 16px; }
-  section { padding: 20px; margin: 12px; }
-  label { font-size: 15px; }
+/* ──────────── Form Status ───────────── */
+.form-status {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--pri-600);
+}
+
+.form-status--error {
+  color: #c0392b;
+}
+
+/* ──────────── Responsive Styles ───────────── */
+@media (max-width: 540px) {
+  .card {
+    padding: 1.7rem 1.45rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .card__title {
+    font-size: 1.35rem;
+  }
+
+  .question__num {
+    flex-basis: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.85rem;
+  }
 }

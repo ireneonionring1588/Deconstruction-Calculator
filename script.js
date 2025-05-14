@@ -1,140 +1,148 @@
-let materialData = {};
-const selectedMaterials = {};
-const userSubmissions = [];
+'use strict';
 
-// Load materials JSON
-fetch('data.json')
-  .then(r => r.json())
-  .then(data => {
-    materialData = groupByLocation(data);
-    populateLocationDropdown();
-  });
+const endpoint  = document.querySelector('meta[name="endpoint"]').content;
+const form      = document.getElementById('surveyForm');
+const progress  = document.getElementById('progressBar');
+const statusEl  = document.getElementById('formStatus');
 
-function groupByLocation(data) {
-  const grouped = {};
-  data.forEach(item => {
-    (grouped[item.location] ||= []).push(item);
-  });
-  return grouped;
+const materialCheckWrap  = document.getElementById('materialCheckboxContainer');
+const materialInputsWrap = document.getElementById('materialInputsContainer');
+const locationSelect     = document.getElementById('locationSelect');
+
+let materialData      = {};
+let selectedMaterials = {};
+
+function updateProgressBar() {
+  const req  = [...form.querySelectorAll('[required]')].filter(el => el.dataset.ignore !== 'true');
+  const fill = req.filter(el => el.value.trim()).length;
+  const pct  = Math.round((fill / req.length) * 100);
+  progress.style.width = `${pct}%`;
+  progress.parentElement.setAttribute('aria-valuenow', pct);
 }
 
-function populateLocationDropdown() {
-  const select = document.getElementById('locationSelect');
-  select.innerHTML = '';
-  Object.keys(materialData).forEach(loc => {
-    const opt = document.createElement('option');
-    opt.value = loc;
-    opt.textContent = loc.charAt(0).toUpperCase() + loc.slice(1);
-    select.appendChild(opt);
-  });
-  select.addEventListener('change', updateMaterialCheckboxes);
-  updateMaterialCheckboxes();
+function initProgressBar() {
+  updateProgressBar();
+  form.addEventListener('input',  updateProgressBar);
+  form.addEventListener('change', updateProgressBar);
 }
 
-function updateMaterialCheckboxes() {
-  const location = document.getElementById('locationSelect').value;
-  const container = document.getElementById('materialCheckboxContainer');
-  container.innerHTML = '';
+(function autofillDate() {
+  const d = document.getElementById('dateInput');
+  d.value = new Date().toISOString().split('T')[0];
+  d.dataset.ignore = 'true';
+})();
 
-  materialData[location].forEach((item, index) => {
-    const id = `${location}-${index}`;
-    const checked = id in selectedMaterials;
-    const label = document.createElement('label');
-    label.innerHTML = `<input type="checkbox" ${checked ? 'checked' : ''}> ${item.name}`;
-    label.querySelector('input').addEventListener('change', e => handleToggle(e, item, id));
-    container.appendChild(label);
+async function loadMaterials() {
+  const list = await (await fetch(new URL('./data.json', import.meta.url))).json();
+  materialData = list.reduce((a,c)=>(a[c.location]=[...(a[c.location]||[]),c],a),{});
+  Object.keys(materialData).forEach(loc =>
+    locationSelect.add(new Option(loc[0].toUpperCase()+loc.slice(1),loc))
+  );
+  updateCheckboxList();
+}
+
+function updateCheckboxList() {
+  const loc = locationSelect.value;
+  materialCheckWrap.innerHTML='';
+  materialData[loc].forEach((m,i)=>{
+    const id=`${loc}-${i}`;
+    materialCheckWrap.insertAdjacentHTML('beforeend',
+      `<label class="material-checkbox">
+         <input type="checkbox" class="material-checkbox__input" data-id="${id}" ${id in selectedMaterials?'checked':''}>
+         ${m.name}
+       </label>`);
   });
 }
 
-function handleToggle(e, item, id) {
-  const container = document.getElementById('materialInputsContainer');
-  const existing = document.getElementById(id);
+materialCheckWrap.addEventListener('change',e=>{
+  if(!e.target.matches('.material-checkbox__input'))return;
+  const id=e.target.dataset.id;
+  const [loc,i]=id.split('-');
+  const mat=materialData[loc][i];
+  if(e.target.checked){selectedMaterials[id]=mat;addMaterialGroup(id,mat);}
+  else{delete selectedMaterials[id];document.getElementById(id)?.remove();}
+  updateProgressBar();
+});
 
-  if (e.target.checked) {
-    selectedMaterials[id] = item;
-    if (!existing) {
-      const group = document.createElement('div');
-      group.className = 'material-group';
-      group.id = id;
-      group.innerHTML = `
-        <h4>${item.name}</h4>
-        <div class="field-row">
-          <label>Quantity (${item.unit})</label>
-          <input type="number" step="any" name="quantity" data-weight="${item.weightPerUnit}" required>
-          <span class="calc-value" data-field="totalWeight">Total Weight: 0.00 lbs</span>
-        </div>
-        <div class="field-row">
-          <label>Reuse (lbs)</label>
-          <input type="number" step="any" name="reuse" required>
-        </div>
-        <div class="field-row">
-          <label>Recycle (lbs)</label>
-          <input type="number" step="any" name="recycle" required>
-          <span class="calc-value" data-field="disposal">Total Landfill: 0.00 lbs</span>
-        </div>`;
-      group.querySelectorAll('input[name="quantity"],input[name="reuse"],input[name="recycle"]').forEach(input => {
-        input.addEventListener('input', () => updateCalc(group));
-      });
-      container.appendChild(group);
-    }
-  } else {
-    delete selectedMaterials[id];
-    existing?.remove();
+function addMaterialGroup(id,mat){
+  if(document.getElementById(id))return;
+  materialInputsWrap.insertAdjacentHTML('beforeend',
+    `<div class="material-group" id="${id}">
+       <button type="button" class="material-remove" data-id="${id}" aria-label="Remove">✕</button>
+       <h4 class="material-group__title">${mat.name}</h4>
+       <div class="material-field">
+         <label>Quantity (${mat.unit})</label>
+         <input type="number" step="any" name="quantity" data-weight="${mat.weightPerUnit}" required>
+         <span class="material-field__calc" data-total>0.00 lbs</span>
+       </div>
+       <div class="material-field">
+         <label>Reuse (lbs)</label>
+         <input type="number" step="any" name="reuse" required>
+       </div>
+       <div class="material-field">
+         <label>Recycle (lbs)</label>
+         <input type="number" step="any" name="recycle" required>
+         <span class="material-field__calc" data-landfill>0.00 lbs</span>
+       </div>
+     </div>`);
+  updateProgressBar();
+}
+
+materialInputsWrap.addEventListener('click',e=>{
+  if(!e.target.matches('.material-remove'))return;
+  const id=e.target.dataset.id;
+  document.getElementById(id)?.remove();
+  delete selectedMaterials[id];
+  const cb=document.querySelector(`.material-checkbox__input[data-id="${id}"]`);
+  if(cb) cb.checked=false;
+  updateProgressBar();
+});
+
+materialInputsWrap.addEventListener('input',e=>{
+  const g=e.target.closest('.material-group');
+  if(!g)return;
+  const q=parseFloat(g.querySelector('[name="quantity"]').value)||0;
+  const ru=parseFloat(g.querySelector('[name="reuse"]').value)||0;
+  const rc=parseFloat(g.querySelector('[name="recycle"]').value)||0;
+  const w=parseFloat(g.querySelector('[name="quantity"]').dataset.weight)||0;
+  const tot=q*w;
+  const lf=Math.max(tot-ru-rc,0);
+  g.querySelector('[data-total]').textContent=`${tot.toFixed(2)} lbs`;
+  g.querySelector('[data-landfill]').textContent=`${lf.toFixed(2)} lbs`;
+});
+
+form.addEventListener('submit',async e=>{
+  e.preventDefault();statusEl.hidden=true;
+  if(!form.reportValidity())return;
+  const fd=new FormData(form);
+  const payload={
+    projectName:fd.get('projectName').trim(),
+    projectAddress:fd.get('projectAddress').trim(),
+    taxParcel:fd.get('taxParcel').trim(),
+    jurisdiction:fd.get('jurisdiction').trim(),
+    date:fd.get('date'),
+    evaluatorName:fd.get('evaluatorName').trim(),
+    evaluatorPhone:fd.get('evaluatorPhone').trim(),
+    email:fd.get('email').trim(),
+    data:[]
+  };
+  for(const [id,m] of Object.entries(selectedMaterials)){
+    const g=document.getElementById(id);
+    const q=parseFloat(g.querySelector('[name="quantity"]').value)||0;
+    const ru=parseFloat(g.querySelector('[name="reuse"]').value)||0;
+    const rc=parseFloat(g.querySelector('[name="recycle"]').value)||0;
+    const w=parseFloat(g.querySelector('[name="quantity"]').dataset.weight)||0;
+    const tot=q*w;const lf=Math.max(tot-ru-rc,0);
+    payload.data.push({material:m.name,quantity:q,totalWeight:tot.toFixed(2),reuse:ru,recycle:rc,landfill:lf.toFixed(2),category:m.category});
   }
-}
+  try{
+    const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok)throw new Error(r.status);
+    statusEl.textContent='✓ Submitted successfully!';statusEl.className='form-status';statusEl.hidden=false;
+    form.reset();selectedMaterials={};materialInputsWrap.innerHTML='';updateCheckboxList();updateProgressBar();
+  }catch(err){statusEl.textContent='✕ Submission failed.';statusEl.className='form-status form-status--error';statusEl.hidden=false;console.error(err);}
+});
 
-function updateCalc(group) {
-  const qty = parseFloat(group.querySelector('input[name="quantity"]').value) || 0;
-  const reuse = parseFloat(group.querySelector('input[name="reuse"]').value) || 0;
-  const recycle = parseFloat(group.querySelector('input[name="recycle"]').value) || 0;
-  const wpu = parseFloat(group.querySelector('input[name="quantity"]').dataset.weight) || 0;
-
-  const total = qty * wpu;
-  const disposal = Math.max(total - reuse - recycle, 0);
-
-  group.querySelector('[data-field="totalWeight"]').textContent = `${total.toFixed(2)} lbs`;
-  group.querySelector('[data-field="disposal"]').textContent = `${disposal.toFixed(2)} lbs`;
-}
-
-function handleSubmit(ev) {
-  ev.preventDefault();
-
-  const email = document.getElementById('emailInput').value.trim();
-  if (!email || !email.includes('@')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-
-  userSubmissions.length = 0;
-
-  for (const [id, item] of Object.entries(selectedMaterials)) {
-    const group = document.getElementById(id);
-    const quantity = parseFloat(group.querySelector('input[name="quantity"]').value) || 0;
-    const reuse = parseFloat(group.querySelector('input[name="reuse"]').value) || 0;
-    const recycle = parseFloat(group.querySelector('input[name="recycle"]').value) || 0;
-    const wpu = parseFloat(group.querySelector('input[name="quantity"]').dataset.weight) || 0;
-    const total = quantity * wpu;
-    const landfill = Math.max(total - reuse - recycle, 0);
-
-    userSubmissions.push({
-      material: item.name,
-      quantity,
-      totalWeight: total.toFixed(2),
-      reuse,
-      recycle,
-      landfill: landfill.toFixed(2),
-      category: item.category
-    });
-  }
-
-  fetch("https://script.google.com/macros/s/AKfycbwDGNpgD9gFgkYNucM6bnifa0kJkt1ZSF8XMbNyGUjG8XzJI2yl2iM4C4Zrg-54bYLLgQ/exec", {
-    method: "POST",
-    body: JSON.stringify({ email, data: userSubmissions }),
-    headers: {
-      "Content-Type": "text/plain"
-    }
-  });
-
-  alert("Entries submitted and saved successfully!");
-  window.location.reload();
-}
+locationSelect.addEventListener('change',updateCheckboxList);
+initProgressBar();
+loadMaterials();

@@ -2,32 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deconstruction Material Tracker</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <!-- ── SEO / endpoint ──────────────────────────────────────────── -->
+  <meta name="description" content="Survey to capture deconstruction material and project details." />
+  <meta name="endpoint"    content="https://script.google.com/macros/s/AKfycbxZH9gBAHOxSln01dV_JDPmeYu27KfS-sV98J81MxKtLQScXSAA365vddDBM-oHOkWG/exec" />
+
+  <title>Deconstruction Material Survey</title>
+
+  <!-- ── assets ──────────────────────────────────────────────────── -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
+
 <body>
-  
-  <h1>Deconstruction Material Tracker</h1>
-  Trigger GitHub Pages build
-  <section class="form-section">
-    <label for="locationSelect">Select Material Location:</label>
-    <select id="locationSelect"></select>
 
-    <div id="materialCheckboxContainer"></div>
-  </section>
+  <!-- ── sticky header + progress bar ────────────────────────────── -->
+  <header class="page-header">
+    <h1>Deconstruction Material Survey</h1>
 
-  <section class="entries-section">
-    <h2>Material Entries</h2>
-    <label for="emailInput">Your Email:</label>
-  <input type="email" id="emailInput" required />
-    <form id="materialForm" onsubmit="handleSubmit(event)">
-      <div id="materialInputsContainer"></div>
-      <button type="submit">Submit All</button>
+    <div class="progress" role="progressbar"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div id="progressBar" class="progress__bar"></div>
+    </div>
+  </header>
+
+  <main>
+    <form id="surveyForm" novalidate>
+
+      <!-- ───────────────── Project Context ─────────────────────── -->
+      <fieldset class="card">
+        <legend class="card__title">Project Context</legend>
+
+        <div class="question">
+          <span class="question__num">1</span>
+          <div class="question__body">
+            <label for="projectNameInput">Project Name</label>
+            <input type="text" id="projectNameInput" name="projectName" required>
+          </div>
+        </div>
+
+        <div class="question">
+          <span class="question__num">2</span>
+          <div class="question__body">
+            <label for="projectAddressInput">Project Address</label>
+            <input type="text" id="projectAddressInput" name="projectAddress" required>
+          </div>
+        </div>
+
+        <div class="question">
+          <span class="question__num">3</span>
+          <div class="question__body">
+            <label for="taxParcelInput">Tax Parcel Number</label>
+            <input type="text" id="taxParcelInput" name="taxParcel" required>
+          </div>
+        </div>
+
+        <div class="question">
+          <span class="question__num">4</span>
+          <div class="question__body">
+            <label for="jurisdictionInput">Permitting Jurisdiction</label>
+            <input type="text" id="jurisdictionInput" name="jurisdiction" required>
+          </div>
+        </div>
+
+        <div class="question">
+          <span class="question__num">5</span>
+          <div class="question__body">
+            <label for="dateInput">Date</label>
+            <input type="date" id="dateInput" name="date" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ───────────────── Evaluator Contact ────────────────────── -->
+      <fieldset class="card">
+        <legend class="card__title">Evaluator Contact</legend>
+
+        <div class="question">
+          <span class="question__num">6</span>
+          <div class="question__body">
+            <label for="evaluatorNameInput">Name</label>
+            <input type="text" id="evaluatorNameInput" name="evaluatorName" required>
+          </div>
+        </div>
+
+        <div class="question">
+          <span class="question__num">7</span>
+          <div class="question__body">
+            <label for="evaluatorPhoneInput">Phone Number</label>
+            <input type="tel" id="evaluatorPhoneInput"
+                   name="evaluatorPhone"
+                   required>
+          </div>
+        </div>
+
+        <div class="question">
+          <span class="question__num">8</span>
+          <div class="question__body">
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" name="email" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ───────────────── Materials section ────────────────────── -->
+      <fieldset class="card">
+        <legend class="card__title">Materials</legend>
+
+        <div class="question question--single">
+          <span class="question__num">9</span>
+          <div class="question__body">
+            <label for="locationSelect">Material Location</label>
+            <select id="locationSelect" name="location"></select>
+          </div>
+        </div>
+
+        <div id="materialCheckboxContainer"></div>
+        <div id="materialInputsContainer"></div>
+      </fieldset>
+
+      <!-- submit button & status message -->
+      <button type="submit" class="btn">Submit Survey</button>
+      <p id="formStatus" class="form-status" hidden></p>
     </form>
-    <div id="entryContainer"></div>
-  </section>
+  </main>
 
-  <script src="script.js"></script>
+  <!-- main logic -->
+  <script type="module" src="script.js" defer></script>
 </body>
 </html>
