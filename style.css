@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 :root {
-  --pri-500: #027a62;
-  --pri-600: #026951;
-  --pri-100: #e6f4f1;
+  --primary:       #027a62;
+  --primary-dark:  #026951;
+  --primary-light: #e6f4f1;
 
-  --g-900: #1e1e1e;
-  --g-700: #444;
-  --g-500: #767;
-  --g-200: #ddd;
+  --text:         #1e1e1e;
+  --text-muted:   #444;
+  --text-subtle:  #767;
+  --border:       #ddd;
 
   --radius: 12px;
   --dur: 180ms;
@@ -18,15 +18,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --g-900: #eaeaea;
-    --g-700: #c6c6c6;
-    --g-500: #9e9e9e;
-    --g-200: #444;
-    --pri-100: #034438;
+    --text:         #eaeaea;
+    --text-muted:   #c6c6c6;
+    --text-subtle:  #9e9e9e;
+    --border:       #444;
+    --primary-light: #034438;
   }
 }
 
-/* ──────────── Base Reset ───────────── */
+/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -36,11 +36,11 @@ html, body {
   height: 100%;
   font-family: "Inter", sans-serif;
   background: #f7f8f9;
-  color: var(--g-900);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 
-/* ──────────── Header ───────────── */
+/* Header */
 .page-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -54,14 +54,14 @@ html, body {
   margin: 0 0 0.6rem;
   font-size: 1.7rem;
   font-weight: 600;
-  color: var(--pri-600);
+  color: var(--primary-dark);
   text-align: center;
 }
 
-/* ──────────── Progress Bar ───────────── */
+/* Progress Bar */
 .progress {
   height: var(--progress-h);
-  background: var(--g-200);
+  background: var(--border);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -69,20 +69,22 @@ html, body {
 .progress__bar {
   width: 0;
   height: 100%;
-  background: var(--pri-500);
+  background: var(--primary);
   transition: width var(--dur) ease;
 }
 
-/* ──────────── Main Layout ───────────── */
+/* Main Layout */
 main {
   width: min(96%, 1024px);
   margin-inline: auto;
   padding: calc(var(--header-h) + 1.5rem) 0 4rem;
 }
 
-/* ──────────── Cards & Sections ───────────── */
+/* Cards & Sections */
 .card {
   background: #fff;
+  position: relative;
+  padding-top: 3rem;
   border: none;
   margin-top: 2.25rem;
   padding: 2.2rem 2.4rem;
@@ -92,19 +94,20 @@ main {
 
 .card__title {
   font-size: 1.55rem;
+  Margin-top: 1rem;
   font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: var(--pri-600);
+  margin-bottom: 3rem;
+  color: var(--primary-dark);
 }
 
-/* ──────────── Question Blocks ───────────── */
+/* Question Blocks */
 .question {
   display: flex;
   gap: 1.2rem;
   align-items: flex-start;
   margin-top: 1.6rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--g-200);
+  border-bottom: 1px solid var(--border);
 }
 
 .question:first-child {
@@ -124,7 +127,7 @@ main {
   flex: 0 0 36px;
   height: 36px;
   line-height: 36px;
-  background: var(--pri-500);
+  background: var(--primary);
   color: #fff;
   text-align: center;
   border-radius: 50%;
@@ -137,32 +140,32 @@ main {
   min-width: 0;
 }
 
-/* ──────────── Form Inputs ───────────── */
+/* Form Inputs */
 label {
   display: block;
   margin-bottom: 0.45rem;
   font-size: 0.93rem;
   font-weight: 500;
-  color: var(--g-700);
+  color: var(--text-muted);
 }
 
 input, select {
   width: 100%;
   padding: 0.78rem 0.9rem;
   font-size: 1rem;
-  border: 1px solid var(--g-200);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: #fff;
   transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
 }
 
 input:hover, select:hover {
-  border-color: var(--pri-500);
+  border-color: var(--primary);
 }
 
 input:focus, select:focus {
   outline: 0;
-  border-color: var(--pri-600);
+  border-color: var(--primary-dark);
   box-shadow: 0 0 0 0.14rem rgba(2, 122, 98, 0.18);
 }
 
@@ -171,7 +174,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-/* ──────────── Material Section ───────────── */
+/* Material Section */
 #materialCheckboxContainer {
   margin-top: 1.3rem;
 }
@@ -182,7 +185,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   gap: 0.6rem;
   padding: 0.6rem 0;
   font-size: 0.95rem;
-  border-bottom: 1px dashed var(--g-200);
+  border-bottom: 1px dashed var(--border);
 }
 
 .material-checkbox:last-child {
@@ -192,15 +195,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .material-checkbox__input {
   width: 1.05rem;
   height: 1.05rem;
-  accent-color: var(--pri-600);
+  accent-color: var(--primary-dark);
 }
 
 .material-group {
   position: relative;
   margin-top: 2.5rem;
   padding: 2.4rem 1.6rem 1.6rem;
-  background: var(--pri-100);
-  border-left: 4px solid var(--pri-600);
+  background: var(--primary-light);
+  border-left: 4px solid var(--primary-dark);
   border-radius: var(--radius);
 }
 
@@ -211,7 +214,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .material-group__title {
   margin-bottom: 1.45rem;
   text-align: center;
-  color: var(--pri-600);
+  color: var(--primary-dark);
 }
 
 .material-field {
@@ -220,11 +223,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .material-field__calc {
   font-size: 0.85rem;
-  color: var(--g-500);
+  color: var(--text-subtle);
   text-align: right;
 }
 
-/* ──────────── Remove Button ───────────── */
+/* Remove Button */
 .material-remove {
   position: absolute;
   top: 10px;
@@ -233,16 +236,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
   font-size: 1.2rem;
   line-height: 1;
-  color: var(--g-700);
+  color: var(--text-muted);
   cursor: pointer;
   transition: color var(--dur);
 }
 
 .material-remove:hover {
-  color: var(--pri-600);
+  color: var(--primary-dark);
 }
 
-/* ──────────── Submit Button ───────────── */
+/* Submit Button */
 .btn {
   display: inline-block;
   width: 100%;
@@ -251,7 +254,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 1.05rem;
   font-weight: 600;
   color: #fff;
-  background: var(--pri-500);
+  background: var(--primary);
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
@@ -259,7 +262,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .btn:hover {
-  background: var(--pri-600);
+  background: var(--primary-dark);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(2, 122, 98, 0.18);
 }
@@ -268,18 +271,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: none;
 }
 
-/* ──────────── Form Status ───────────── */
+/* Form Status */
 .form-status {
   margin-top: 1rem;
   font-weight: 600;
-  color: var(--pri-600);
+  color: var(--primary-dark);
 }
 
 .form-status--error {
   color: #c0392b;
 }
 
-/* ──────────── Responsive Styles ───────────── */
+/* Responsive Styles */
 @media (max-width: 540px) {
   .card {
     padding: 1.7rem 1.45rem;

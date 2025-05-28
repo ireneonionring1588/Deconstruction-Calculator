@@ -4,25 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-  <!-- ── SEO / endpoint ──────────────────────────────────────────── -->
+  <!-- Meta and endpoint -->
   <meta name="description" content="Survey to capture deconstruction material and project details." />
-  <meta name="endpoint"    content="https://script.google.com/macros/s/AKfycbx21wLOMzZc-GZjz4REamn6v8XWCuXo8HuCvoiC4r5B6PC1Jn2SBHERCeKvSVTYLx7BIA/exec" />
+  <meta name="endpoint" content="https://script.google.com/macros/s/AKfycbx21wLOMzZc-GZjz4REamn6v8XWCuXo8HuCvoiC4r5B6PC1Jn2SBHERCeKvSVTYLx7BIA/exec" />
 
   <title>Deconstruction Material Survey</title>
 
-  <!-- ── assets ──────────────────────────────────────────────────── -->
+  <!-- Assets -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 
 <body>
 
-  <!-- ── sticky header + progress bar ────────────────────────────── -->
+  <!-- Header -->
   <header class="page-header">
     <h1>Deconstruction Material Survey</h1>
-
-    <div class="progress" role="progressbar"
-         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
       <div id="progressBar" class="progress__bar"></div>
     </div>
   </header>
@@ -30,9 +28,9 @@
   <main>
     <form id="surveyForm" novalidate>
 
-      <!-- ───────────────── Project Context ─────────────────────── -->
+      <!-- Project Context -->
       <fieldset class="card">
-        <legend class="card__title">Project Context</legend>
+        <div class="card__title">Project Context</div>
 
         <div class="question">
           <span class="question__num">1</span>
@@ -75,9 +73,9 @@
         </div>
       </fieldset>
 
-      <!-- ───────────────── Evaluator Contact ────────────────────── -->
+      <!-- Evaluator Contact -->
       <fieldset class="card">
-        <legend class="card__title">Evaluator Contact</legend>
+        <div class="card__title">Evaluator Contact</div>
 
         <div class="question">
           <span class="question__num">6</span>
@@ -91,9 +89,7 @@
           <span class="question__num">7</span>
           <div class="question__body">
             <label for="evaluatorPhoneInput">Phone Number</label>
-            <input type="tel" id="evaluatorPhoneInput"
-                   name="evaluatorPhone"
-                   required>
+            <input type="tel" id="evaluatorPhoneInput" name="evaluatorPhone" required>
           </div>
         </div>
 
@@ -106,15 +102,15 @@
         </div>
       </fieldset>
 
-      <!-- ───────────────── Materials section ────────────────────── -->
+      <!-- Materials -->
       <fieldset class="card">
-        <legend class="card__title">Materials</legend>
+        <div class="card__title">Materials</div>
 
         <div class="question question--single">
           <span class="question__num">9</span>
           <div class="question__body">
-            <label for="locationSelect">Material Location</label>
-            <select id="locationSelect" name="location"></select>
+            <label for="materialSearch">Search Materials</label>
+            <input type="text" id="materialSearch" placeholder="Type to search..." />
           </div>
         </div>
 
@@ -122,13 +118,13 @@
         <div id="materialInputsContainer"></div>
       </fieldset>
 
-      <!-- submit button & status message -->
+      <!-- Submit -->
       <button type="submit" class="btn">Submit Survey</button>
       <p id="formStatus" class="form-status" hidden></p>
     </form>
   </main>
 
-  <!-- main logic -->
+  <!-- Script -->
   <script type="module" src="script.js" defer></script>
 </body>
 </html>

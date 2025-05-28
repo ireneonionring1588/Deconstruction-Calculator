@@ -2,18 +2,18 @@
 
 const endpoint = document.querySelector('meta[name="endpoint"]').content;
 
-
 const form          = document.getElementById('surveyForm');
 const progress      = document.getElementById('progressBar');
 const statusEl      = document.getElementById('formStatus');
 
-const locationSelect     = document.getElementById('locationSelect');
+const materialSearch     = document.getElementById('materialSearch');
 const materialCheckWrap  = document.getElementById('materialCheckboxContainer');
 const materialInputsWrap = document.getElementById('materialInputsContainer');
 
-let materialData      = {};   // all materials loaded from data.json, grouped by location
-let selectedMaterials = {};   // { id: materialObj } for items the user checked
+let materialData      = {};   // loaded from data.json, grouped by location
+let selectedMaterials = {};   // selected materials
 
+// Update progress bar
 function updateProgressBar () {
   const required = [...form.querySelectorAll('[required]')]
                     .filter(el => el.dataset.ignore !== 'true');
@@ -24,48 +24,67 @@ function updateProgressBar () {
   progress.parentElement.setAttribute('aria-valuenow', pct);
 }
 
+// Auto-fill date input
 (function autofillDate () {
   const d = document.getElementById('dateInput');
   d.value = new Date().toISOString().split('T')[0];
   d.dataset.ignore = 'true';
 })();
 
+// Load material data
 async function loadMaterials () {
   const list = await (await fetch(new URL('./data.json', import.meta.url))).json();
 
-  // group by location
   materialData = list.reduce((acc, cur) => {
     (acc[cur.location] ||= []).push(cur);
     return acc;
   }, {});
 
-  // populate <select>
-  Object.keys(materialData).forEach(loc => {
-    locationSelect.add(new Option(loc[0].toUpperCase() + loc.slice(1), loc));
-  });
-
-  updateCheckboxList();
+  materialCheckWrap.hidden = true;
 }
 
-function updateCheckboxList () {
-  const loc = locationSelect.value;
+// Filter and render checklist
+function updateCheckboxList (searchTerm = '') {
   materialCheckWrap.innerHTML = '';
+  const term = searchTerm.toLowerCase().trim();
 
-  materialData[loc].forEach((m, i) => {
-    const id = `${loc}-${i}`;
+  if (!term) {
+    materialCheckWrap.hidden = true;
+    return;
+  }
+
+  const allMaterials = Object.entries(materialData).flatMap(([loc, mats]) =>
+    mats.map((m, i) => ({
+      ...m,
+      id: `${loc}-${i}`,
+      location: loc
+    }))
+  );
+
+  const matches = allMaterials.filter(m => m.name.toLowerCase().includes(term));
+
+  if (matches.length === 0) {
+    materialCheckWrap.hidden = true;
+    return;
+  }
+
+  materialCheckWrap.hidden = false;
+
+  matches.forEach(m => {
     materialCheckWrap.insertAdjacentHTML(
       'beforeend',
       `<label class="material-checkbox">
          <input type="checkbox"
                 class="material-checkbox__input"
-                data-id="${id}"
-                ${id in selectedMaterials ? 'checked' : ''}>
-         ${m.name}
+                data-id="${m.id}"
+                ${m.id in selectedMaterials ? 'checked' : ''}>
+         ${m.name} (${m.location})
        </label>`
     );
   });
 }
 
+// Add selected material to form
 function addMaterialGroup (id, mat) {
   if (document.getElementById(id)) return; 
 
@@ -95,9 +114,7 @@ function addMaterialGroup (id, mat) {
   );
 }
 
-locationSelect.addEventListener('change', updateCheckboxList);
-
-// checkbox change → add/remove material input blocks
+// Handle checkbox selection
 materialCheckWrap.addEventListener('change', e => {
   if (!e.target.matches('.material-checkbox__input')) return;
 
@@ -116,7 +133,7 @@ materialCheckWrap.addEventListener('change', e => {
   updateProgressBar();
 });
 
-// remove button inside material block
+// Handle material group removal
 materialInputsWrap.addEventListener('click', e => {
   if (!e.target.matches('.material-remove')) return;
 
@@ -130,7 +147,7 @@ materialInputsWrap.addEventListener('click', e => {
   updateProgressBar();
 });
 
-// live calculations in each material group
+// Calculate weights and landfill
 materialInputsWrap.addEventListener('input', e => {
   const group = e.target.closest('.material-group');
   if (!group) return;
@@ -147,13 +164,13 @@ materialInputsWrap.addEventListener('input', e => {
   group.querySelector('[data-landfill]').textContent = `Total Landfill: ${landfill.toFixed(2)}`;
 });
 
+// Handle form submission
 form.addEventListener('submit', async e => {
   e.preventDefault();
-  statusEl.hidden = true;       
+  statusEl.hidden = true;
 
   if (!form.reportValidity()) return;
 
-  // build payload
   const fd = new FormData(form);
   const payload = {
     projectName   : fd.get('projectName').trim(),
@@ -197,14 +214,12 @@ form.addEventListener('submit', async e => {
       body: formData
     });
 
-
     if (!res.ok) throw new Error(res.statusText);
 
     statusEl.textContent = '✓ Submission successful!';
     statusEl.className   = 'form-status';
     statusEl.hidden      = false;
 
-    // reset UI
     form.reset();
     selectedMaterials = {};
     materialInputsWrap.innerHTML = '';
@@ -219,8 +234,13 @@ form.addEventListener('submit', async e => {
   }
 });
 
+// Event listeners
 form.addEventListener('input',  updateProgressBar);
 form.addEventListener('change', updateProgressBar);
+materialSearch.addEventListener('input', e => {
+  updateCheckboxList(e.target.value);
+});
 
+// Initialize
 updateProgressBar();
 loadMaterials();
