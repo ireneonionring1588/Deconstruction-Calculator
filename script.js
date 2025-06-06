@@ -10,7 +10,7 @@ const materialSearch     = document.getElementById('materialSearch');
 const materialCheckWrap  = document.getElementById('materialCheckboxContainer');
 const materialInputsWrap = document.getElementById('materialInputsContainer');
 
-let materialData      = {};   // loaded from data.json, grouped by location
+let materialData      = [];   // simple array loaded from data.json
 let selectedMaterials = {};   // selected materials
 
 // Update progress bar
@@ -35,11 +35,7 @@ function updateProgressBar () {
 async function loadMaterials () {
   const list = await (await fetch(new URL('./data.json', import.meta.url))).json();
 
-  materialData = list.reduce((acc, cur) => {
-    (acc[cur.location] ||= []).push(cur);
-    return acc;
-  }, {});
-
+  materialData = list;                 
   materialCheckWrap.hidden = true;
 }
 
@@ -53,17 +49,18 @@ function updateCheckboxList (searchTerm = '') {
     return;
   }
 
-  const allMaterials = Object.entries(materialData).flatMap(([loc, mats]) =>
-    mats.map((m, i) => ({
-      ...m,
-      id: `${loc}-${i}`,
-      location: loc
-    }))
-  );
+  const allMaterials = materialData.map((m, i) => ({
+    ...m,
+    id: String(i)               
+  }));
 
-  const matches = allMaterials.filter(m => m.name.toLowerCase().includes(term));
+  const searchWords = term.split(/\s+/);
+  const matches = allMaterials.filter(m => {
+    const name = m.name.toLowerCase();
+    return searchWords.every(word => name.includes(word));
+  });
 
-  if (matches.length === 0) {
+  if (!matches.length) {
     materialCheckWrap.hidden = true;
     return;
   }
@@ -78,7 +75,7 @@ function updateCheckboxList (searchTerm = '') {
                 class="material-checkbox__input"
                 data-id="${m.id}"
                 ${m.id in selectedMaterials ? 'checked' : ''}>
-         ${m.name} (${m.location})
+         ${m.name}
        </label>`
     );
   });
@@ -119,8 +116,8 @@ materialCheckWrap.addEventListener('change', e => {
   if (!e.target.matches('.material-checkbox__input')) return;
 
   const id  = e.target.dataset.id;
-  const [loc, idx] = id.split('-');
-  const mat = materialData[loc][idx];
+  const idx = Number(id);   
+  const mat = materialData[idx];
 
   if (e.target.checked) {
     selectedMaterials[id] = mat;

@@ -1,115 +1,548 @@
 [
-  { "name": "Roof lightning strips (lead)", "unit": "lineal feet", "weightPerUnit": 1, "location": "roof", "category": "Mixed Metals" },
-  { "name": "roofing - asphalt shingles", "unit": "sq ft", "weightPerUnit": 3, "location": "roof", "category": "Asphalt Shingles" },
-  { "name": "tar paper", "unit": "sq ft", "weightPerUnit": 0.3, "location": "roof", "category": "Mixed MSW" },
-  { "name": "OSB roof sheathing 5/8", "unit": "sq ft", "weightPerUnit": 2.12, "location": "roof", "category": "Medium-density Fiberboard" },
-  { "name": "Roof rafters", "unit": "lineal feet", "weightPerUnit": 1.5, "location": "roof", "category": "Dimensional Lumber" },
-  { "name": "Trusses", "unit": "each", "weightPerUnit": 250, "location": "roof", "category": "Dimensional Lumber" },
-  { "name": "Ceiling joists 2x4", "unit": "lineal feet", "weightPerUnit": 1.6, "location": "ceiling", "category": "Dimensional Lumber" },
-  { "name": "Blocking 2x4", "unit": "lineal feet", "weightPerUnit": 1.6, "location": "roof", "category": "Dimensional Lumber" },
-  { "name": "Support braces, misc.", "unit": "set", "weightPerUnit": 1250, "location": "ceiling", "category": "Dimensional Lumber" },
-  { "name": "Sattelite dish", "unit": "set", "weightPerUnit": 35, "location": "roof", "category": "Mixed Metals" },
-  { "name": "Hose, misc household items", "unit": "each", "weightPerUnit": 500, "location": "exterior", "category": "Mixed Plastics" },
-  { "name": "metal gutters", "unit": "lineal feet", "weightPerUnit": 2, "location": "roof", "category": "Mixed Metals" },
-  { "name": "metal downspouts", "unit": "lineal feet", "weightPerUnit": 1, "location": "roof", "category": "Mixed Metals" },
-  { "name": "chimney structure", "unit": "set", "weightPerUnit": 350, "location": "roof", "category": "Clay Bricks" },
-  { "name": "attic insulation", "unit": "cubic feet", "weightPerUnit": 2, "location": "roof", "category": "Fiberglass Insulation" },
-  { "name": "skylights", "unit": "each", "weightPerUnit": 65, "location": "roof", "category": "Mixed Metals" },
-  { "name": "sheetrock", "unit": "sq ft", "weightPerUnit": 2.1, "location": "interior", "category": "Drywall" },
-  { "name": "insulation - r19", "unit": "sq ft", "weightPerUnit": 0.4, "location": "interior", "category": "Fiberglass Insulation" },
-  { "name": "kitchen cabinets", "unit": "set", "weightPerUnit": 100, "location": "kitchen", "category": "Dimensional Lumber" },
-  { "name": "interior doors", "unit": "each", "weightPerUnit": 35, "location": "interior", "category": "Dimensional Lumber" },
-  { "name": "trim", "unit": "lineal ft", "weightPerUnit": 0.4, "location": "interior", "category": "Dimensional Lumber" },
-  { "name": "shelving-closet", "unit": "lineal ft", "weightPerUnit": 3.6, "location": "closets", "category": "Dimensional Lumber" },
-  { "name": "doweling", "unit": "lineal ft", "weightPerUnit": 2, "location": "closets", "category": "Dimensional Lumber" },
-  { "name": "brackets/hardware", "unit": "each", "weightPerUnit": 750, "location": "interior", "category": "Mixed Metals" },
-  { "name": "doorbell", "unit": "set", "weightPerUnit": 5, "location": "kitchen", "category": "Mixed Metals" },
-  { "name": "cedar paneling", "unit": "sq ft", "weightPerUnit": 2, "location": "closets", "category": "Dimensional Lumber" },
-  { "name": "carpeting", "unit": "sq ft", "weightPerUnit": 1.6, "location": "interior", "category": "Carpet" },
-  { "name": "carpet pad", "unit": "sq ft", "weightPerUnit": 0.75, "location": "interior", "category": "Mixed Plastics" },
-  { "name": "7 foot vanity", "unit": "set", "weightPerUnit": 450, "location": "bathroom", "category": "Dimensional Lumber" },
-  { "name": "39 inch vanity", "unit": "set", "weightPerUnit": 215, "location": "bathroom", "category": "Dimensional Lumber" },
-  { "name": "24 inch vanity", "unit": "set", "weightPerUnit": 75, "location": "bathroom", "category": "Dimensional Lumber" },
-  { "name": "mirrors", "unit": "each", "weightPerUnit": 25, "location": "bathroom", "category": "Glass" },
-  { "name": "towel bars", "unit": "each", "weightPerUnit": 5, "location": "bathroom", "category": "Mixed Metals" },
-  { "name": "toilets", "unit": "each", "weightPerUnit": 85, "location": "bathroom", "category": "Clay Bricks" },
-  { "name": "shower stall", "unit": "set", "weightPerUnit": 200, "location": "bathroom", "category": "Mixed Plastics" },
-  { "name": "jetted tub", "unit": "set", "weightPerUnit": 200, "location": "bathroom", "category": "Mixed Plastics" },
-  { "name": "tub/shower", "unit": "set", "weightPerUnit": 320, "location": "bathroom", "category": "Mixed Plastics" },
-  { "name": "bath fans", "unit": "set", "weightPerUnit": 7, "location": "bathroom", "category": "Mixed Electronics" },
-  { "name": "interior lights", "unit": "each", "weightPerUnit": 8, "location": "interior", "category": "Mixed Electronics" },
-  { "name": "linoleum", "unit": "sq ft", "weightPerUnit": 1.5, "location": "interior", "category": "Mixed Plastics" },
-  { "name": "entry ceramic tile", "unit": "sq ft", "weightPerUnit": 5, "location": "entry", "category": "Clay Bricks" },
-  { "name": "staircase", "unit": "set", "weightPerUnit": 500, "location": "entry", "category": "Dimensional Lumber" },
-  { "name": "bannister", "unit": "set", "weightPerUnit": 175, "location": "entry", "category": "Dimensional Lumber" },
-  { "name": "handrailing", "unit": "lineal ft", "weightPerUnit": 10, "location": "entry", "category": "Dimensional Lumber" },
-  { "name": "wood stove/chimney", "unit": "set", "weightPerUnit": 300, "location": "living room", "category": "Mixed Metals" },
-  { "name": "water heater", "unit": "each", "weightPerUnit": 250, "location": "garage", "category": "Mixed Metals" },
-  { "name": "range", "unit": "each", "weightPerUnit": 200, "location": "kitchen", "category": "Mixed Metals" },
-  { "name": "range hood", "unit": "each", "weightPerUnit": 25, "location": "kitchen", "category": "Mixed Metals" },
-  { "name": "dishwasher", "unit": "each", "weightPerUnit": 77, "location": "kitchen", "category": "Mixed Plastics" },
-  { "name": "refrigerator", "unit": "each", "weightPerUnit": 195, "location": "kitchen", "category": "Mixed Metals" },
-  { "name": "kitchen sink/faucet", "unit": "set", "weightPerUnit": 30, "location": "kitchen", "category": "Mixed Metals" },
-  { "name": "disposal", "unit": "each", "weightPerUnit": 15, "location": "kitchen", "category": "Mixed Metals" },
-  { "name": "washer", "unit": "each", "weightPerUnit": 135, "location": "laundry", "category": "Mixed Metals" },
-  { "name": "dryer", "unit": "each", "weightPerUnit": 175, "location": "laundry", "category": "Mixed Metals" },
-  { "name": "laundry sink", "unit": "set", "weightPerUnit": 20, "location": "laundry", "category": "Mixed Plastics" },
-  { "name": "garage door", "unit": "set", "weightPerUnit": 225, "location": "garage", "category": "Mixed Metals" },
-  { "name": "garage door opener", "unit": "set", "weightPerUnit": 35, "location": "garage", "category": "Mixed Electronics" },
-  { "name": "wiring", "unit": "set", "weightPerUnit": 450, "location": "interior", "category": "Copper Wire" },
-  { "name": "plumbing", "unit": "set", "weightPerUnit": 750, "location": "interior", "category": "Mixed Plastics" },
-  { "name": "ducting", "unit": "set", "weightPerUnit": 800, "location": "interior", "category": "Aluminum Cans" },
-  { "name": "furnace", "unit": "set", "weightPerUnit": 200, "location": "garage", "category": "Mixed Metals" },
-  { "name": "particle board subflooring", "unit": "sq ft", "weightPerUnit": 3.44, "location": "floor", "category": "Medium-density Fiberboard" },
-  { "name": "OSB sheathing - subfloor", "unit": "sq ft", "weightPerUnit": 2.65, "location": "floor", "category": "Medium-density Fiberboard" },
-  { "name": "exterior doors", "unit": "each", "weightPerUnit": 100, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "exterior windows", "unit": "each", "weightPerUnit": 95, "location": "exterior", "category": "Mixed Metals" },
-  { "name": "siding - Hardi-Plank", "unit": "sq ft", "weightPerUnit": 3, "location": "exterior", "category": "Concrete" },
-  { "name": "Tyvek building wrap", "unit": "sq ft", "weightPerUnit": 0.04, "location": "exterior", "category": "Mixed Plastics" },
-  { "name": "OSB sheathing", "unit": "sq ft", "weightPerUnit": 1.85, "location": "walls", "category": "Medium-density Fiberboard" },
-  { "name": "2x6 framing", "unit": "lineal feet", "weightPerUnit": 2, "location": "walls", "category": "Dimensional Lumber" },
-  { "name": "wall blocking/headers/etc.", "unit": "set", "weightPerUnit": 2000, "location": "walls", "category": "Dimensional Lumber" },
-  { "name": "sliding glass doors", "unit": "set", "weightPerUnit": 250, "location": "exterior", "category": "Glass" },
-  { "name": "front porch paneling", "unit": "sq ft", "weightPerUnit": 3, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "front porch support beam, etc", "unit": "each", "weightPerUnit": 350, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "porch railings", "unit": "set", "weightPerUnit": 50, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "deck structures", "unit": "set", "weightPerUnit": 10, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "deck stair sets", "unit": "set", "weightPerUnit": 125, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "exterior lights", "unit": "each", "weightPerUnit": 6, "location": "exterior", "category": "Mixed Metals" },
-  { "name": "soffit boards", "unit": "lineal ft", "weightPerUnit": 4, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "hose hangers", "unit": "each", "weightPerUnit": 5, "location": "exterior", "category": "Mixed Plastics" },
-  { "name": "exterior trim", "unit": "lineal ft", "weightPerUnit": 0.5, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "wood screen door", "unit": "each", "weightPerUnit": 31, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "outlet covers", "unit": "each", "weightPerUnit": 0.15, "location": "all areas", "category": "Mixed Plastics" },
-  { "name": "outlets", "unit": "each", "weightPerUnit": 0.3, "location": "all areas", "category": "Mixed Electronics" },
-  { "name": "light switches", "unit": "each", "weightPerUnit": 0.1, "location": "all areas", "category": "Mixed Electronics" },
-  { "name": "electrical boxes", "unit": "each", "weightPerUnit": 0.8, "location": "all areas", "category": "Mixed Plastics" },
-  { "name": "electrical panel", "unit": "set", "weightPerUnit": 75, "location": "garage", "category": "Mixed Electronics" },
-  { "name": "electrical conduit", "unit": "set", "weightPerUnit": 400, "location": "garage", "category": "Mixed Metals" },
-  { "name": "window screens", "unit": "each", "weightPerUnit": 2, "location": "exterior", "category": "Mixed Metals" },
-  { "name": "upper deck support beam", "unit": "each", "weightPerUnit": 150, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "upper deck support posts", "unit": "each", "weightPerUnit": 50, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "front porch support posts", "unit": "each", "weightPerUnit": 50, "location": "exterior", "category": "Dimensional Lumber" },
-  { "name": "exhaust vents/covers", "unit": "each", "weightPerUnit": 1, "location": "all areas", "category": "Mixed Plastics" },
-  { "name": "clothes line fixture", "unit": "set", "weightPerUnit": 25, "location": "exterior", "category": "Mixed Metals" },
-  { "name": "drain lines", "unit": "lineal ft", "weightPerUnit": 3, "location": "crawl space", "category": "HDPE" },
-  { "name": "foundation vents", "unit": "each", "weightPerUnit": 10, "location": "crawl space", "category": "Mixed Metals" },
-  { "name": "floor insulation r30", "unit": "sq ft", "weightPerUnit": 0.85, "location": "floor", "category": "Fiberglass Insulation" },
-  { "name": "floor joists 2x10", "unit": "lineal ft", "weightPerUnit": 3, "location": "floor", "category": "Dimensional Lumber" },
-  { "name": "plastic sheeting - crawl space", "unit": "set", "weightPerUnit": 125, "location": "crawl space", "category": "LDPE" },
-  { "name": "gas pipe", "unit": "set", "weightPerUnit": 400, "location": "crawl space", "category": "Mixed Metals" },
-  { "name": "vent covers", "unit": "each", "weightPerUnit": 1, "location": "all areas", "category": "Mixed Metals" },
-  { "name": "smoke detectors", "unit": "each", "weightPerUnit": 0.8, "location": "interior", "category": "Mixed Electronics" },
-  { "name": "support beam living room roof", "unit": "lineal ft", "weightPerUnit": 9, "location": "attic", "category": "Dimensional Lumber" },
-  { "name": "ceiling fan", "unit": "set", "weightPerUnit": 30, "location": "ceiling", "category": "Mixed Electronics" },
-  { "name": "screen doors - sliding glass doors", "unit": "each", "weightPerUnit": 10, "location": "exterior", "category": "Mixed Metals" },
-  { "name": "workbench", "unit": "each", "weightPerUnit": 150, "location": "garage", "category": "Dimensional Lumber" },
-  { "name": "concrete blocks", "unit": "each", "weightPerUnit": 30, "location": "garage", "category": "Concrete" },
-  { "name": "shelving-garage", "unit": "lineal ft", "weightPerUnit": 3.6, "location": "garage", "category": "Dimensional Lumber" },
-  { "name": "cabinets", "unit": "each", "weightPerUnit": 50, "location": "garage", "category": "Dimensional Lumber" },
-  { "name": "pressure tank", "unit": "each", "weightPerUnit": 40, "location": "garage", "category": "Mixed Metals" },
-  { "name": "mini fridge", "unit": "each", "weightPerUnit": 60, "location": "garage", "category": "Mixed Metals" },
-  { "name": "kitchen countertops", "unit": "set", "weightPerUnit": 570, "location": "kitchen", "category": "Concrete" },
-  { "name": "laminate flooring", "unit": "sq ft", "weightPerUnit": 2.75, "location": "dining room", "category": "Mixed Plastics" },
-  { "name": "misc. items", "unit": "set", "weightPerUnit": 2000, "location": "all areas", "category": "Mixed Recyclables" }
+  {
+    "name": "Exterior Roofing - Metal",
+    "category": "Mixed Metals",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Exterior Roofing - Asphalt shingle",
+    "category": "Asphalt Shingles",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.5
+  },
+  {
+    "name": "Exterior Roofing - Wood shingle",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 3.5
+  },
+  {
+    "name": "Exterior Roofing - Torch down",
+    "category": "Asphalt Shingles",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 1.5
+  },
+  {
+    "name": "Exterior Windows - Wood",
+    "category": "Glass",
+    "unit": "each (ea)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Exterior Windows - Fiberglass",
+    "category": "Mixed Plastics",
+    "unit": "each (ea)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Exterior Windows - Vinyl",
+    "category": "PVC",
+    "unit": "each (ea)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Exterior Windows - Aluminum",
+    "category": "Aluminum Ingot",
+    "unit": "each (ea)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Exterior - Skylights",
+    "category": "Glass",
+    "unit": "each (ea)",
+    "weightPerUnit": 40.0
+  },
+  {
+    "name": "Exterior Gutters - Metal",
+    "category": "Mixed Metals",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Exterior Gutters - Plastic",
+    "category": "PVC",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 0.5
+  },
+  {
+    "name": "Exterior Chimney - Brick",
+    "category": "Clay Bricks",
+    "unit": "each (ea)",
+    "weightPerUnit": 500.0
+  },
+  {
+    "name": "Exterior Chimney - Stone",
+    "category": "Concrete",
+    "unit": "each (ea)",
+    "weightPerUnit": 500.0
+  },
+  {
+    "name": "Exterior Chimney - Cinder block",
+    "category": "Concrete",
+    "unit": "each (ea)",
+    "weightPerUnit": 500.0
+  },
+  {
+    "name": "Exterior Doors - Wood",
+    "category": "Dimensional Lumber*",
+    "unit": "each (ea)",
+    "weightPerUnit": 70.0
+  },
+  {
+    "name": "Exterior Doors - Metal",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 90.0
+  },
+  {
+    "name": "Exterior Subroofing - OSB 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 55.0
+  },
+  {
+    "name": "Exterior Subroofing - CDX 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Exterior Wall Sheathing - OSB 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 55.0
+  },
+  {
+    "name": "Exterior Wall Sheathing - CDX 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Exterior Siding - Vinyl",
+    "category": "PVC",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 0.5
+  },
+  {
+    "name": "Exterior Siding - Aluminum",
+    "category": "Aluminum Ingot",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 0.6
+  },
+  {
+    "name": "Exterior Siding - Wood",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.5
+  },
+  {
+    "name": "Exterior Siding - Hardie board",
+    "category": "Concrete",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 3.0
+  },
+  {
+    "name": "Exterior Siding - CAB (Concrete Asbestos Board)",
+    "category": "Concrete",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 3.0
+  },
+  {
+    "name": "Exterior - Trim",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 0.8
+  },
+  {
+    "name": "Exterior Soffit Boards/Covers - Metal",
+    "category": "Mixed Metals",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.2
+  },
+  {
+    "name": "Exterior Soffit Boards/Covers - Plastic",
+    "category": "PVC",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.2
+  },
+  {
+    "name": "Exterior Soffit Boards/Covers - wood",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.2
+  },
+  {
+    "name": "Exterior - Porch/deck",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Exterior Miscellaneous Materials - Glass",
+    "category": "Glass",
+    "unit": "pound (lb)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Exterior Miscellaneous Materials - Stone",
+    "category": "Concrete",
+    "unit": "pound (lb)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Exterior Miscellaneous Materials - Metal",
+    "category": "Mixed Metals",
+    "unit": "pound (lb)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Exterior Miscellaneous Materials - Concrete",
+    "category": "Concrete",
+    "unit": "pound (lb)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Exterior Miscellaneous Materials - Wood",
+    "category": "Dimensional Lumber*",
+    "unit": "pound (lb)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Exterior Miscellaneous Materials - Brick",
+    "category": "Clay Bricks",
+    "unit": "pound (lb)",
+    "weightPerUnit": 1.0
+  },
+  {
+    "name": "Interior Doors - Solid",
+    "category": "Dimensional Lumber*",
+    "unit": "each (ea)",
+    "weightPerUnit": 70.0
+  },
+  {
+    "name": "Interior Doors - Hollow",
+    "category": "Medium-density Fiberboard",
+    "unit": "each (ea)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Interior Doors - Metal",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 90.0
+  },
+  {
+    "name": "Interior Wall Cladding - Gypsum",
+    "category": "Drywall",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Interior Wall Cladding - Wood (Shiplap, Bead board, etc)",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.5
+  },
+  {
+    "name": "Interior - Trim",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 0.8
+  },
+  {
+    "name": "Interior Flooring - Tile (ceramic)",
+    "category": "Concrete",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 4.0
+  },
+  {
+    "name": "Interior Flooring - Wood",
+    "category": "Wood Flooring*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.5
+  },
+  {
+    "name": "Interior Flooring - Brick",
+    "category": "Clay Bricks",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 8.0
+  },
+  {
+    "name": "Interior Flooring - Concrete",
+    "category": "Concrete",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 12.5
+  },
+  {
+    "name": "Interior Flooring - Carpet",
+    "category": "Carpet",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 0.75
+  },
+  {
+    "name": "Interior Flooring - LVP or LVT Linoleum (tile or sheet)",
+    "category": "Vinyl Flooring",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 1.5
+  },
+  {
+    "name": "Interior Floor Underlayment - OSB 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 55.0
+  },
+  {
+    "name": "Interior Floor Underlayment - CDX 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Interior Floor Underlayment - Shiplap",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.5
+  },
+  {
+    "name": "Interior Floor Underlayment - 1x",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Interior Subfloor - OSB 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 55.0
+  },
+  {
+    "name": "Interior Subfloor - CDX 4x8 sheathing",
+    "category": "Medium-density Fiberboard",
+    "unit": "sheet (4 \u00d7 8 ft)",
+    "weightPerUnit": 60.0
+  },
+  {
+    "name": "Interior Subfloor - Shiplap",
+    "category": "Dimensional Lumber*",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.5
+  },
+  {
+    "name": "Interior - Staircase/banister/handrails",
+    "category": "Dimensional Lumber*",
+    "unit": "each (ea)",
+    "weightPerUnit": 200.0
+  },
+  {
+    "name": "Interior Insulation - Rigid Foam",
+    "category": "PS",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Interior Insulation - Fiberglass",
+    "category": "Fiberglass Insulation",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Interior Insulation - Blown in (Ragwool, Denim, Cotton, Fiber)",
+    "category": "Mixed Organics",
+    "unit": "cubic foot (cu ft)",
+    "weightPerUnit": 0.5
+  },
+  {
+    "name": "Interior Insulation - Expanding Foam",
+    "category": "Mixed Plastics",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Interior Fixtures - Faucet",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 4.0
+  },
+  {
+    "name": "Interior Fixtures - Light",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 5.0
+  },
+  {
+    "name": "Interior Fixtures - Miscellaneous",
+    "category": "Mixed Recyclables",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Interior Cabinets - Kitchen Upper",
+    "category": "Medium-density Fiberboard",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Interior Cabinets - Kitchen Lower",
+    "category": "Medium-density Fiberboard",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Interior Cabinets - Kitchen Island",
+    "category": "Medium-density Fiberboard",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Interior Cabinets - Bathroom Vanity",
+    "category": "Medium-density Fiberboard",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Interior Cabinets - Other cabinets",
+    "category": "Medium-density Fiberboard",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Interior Countertops - Stone",
+    "category": "Concrete",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Interior Countertops - Concrete",
+    "category": "Concrete",
+    "unit": "square foot (sq ft)",
+    "weightPerUnit": 12.5
+  },
+  {
+    "name": "Interior Appliances - Refrigerator",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Washer",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Dryer",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Stove",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Fireplace",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Water heater",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Furnace",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Interior Appliances - Mini-Splits",
+    "category": "Mixed Metals",
+    "unit": "each (ea)",
+    "weightPerUnit": 150.0
+  },
+  {
+    "name": "Roof Structure - Engineered trusses",
+    "category": "Dimensional Lumber*",
+    "unit": "each (ea)",
+    "weightPerUnit": 50.0
+  },
+  {
+    "name": "Roof Structure - Rafters - 2x4",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.3
+  },
+  {
+    "name": "Roof Structure - Rafters - 2x6",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Roof Structure - Rafters - 2x8",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 2.7
+  },
+  {
+    "name": "Roof Structure - Rafters - 2x10",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 3.3
+  },
+  {
+    "name": "Ceiling Structure (joists)- 2x4",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.3
+  },
+  {
+    "name": "Ceiling Structure (joists)- 2x6",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Wall Structure - 2x4",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.3
+  },
+  {
+    "name": "Wall Structure - 2x6",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Floor Structure - 2x4",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 1.3
+  },
+  {
+    "name": "Floor Structure - 2x6",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 2.0
+  },
+  {
+    "name": "Floor Structure - 2x8",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 2.7
+  },
+  {
+    "name": "Floor Structure - 2x10",
+    "category": "Dimensional Lumber*",
+    "unit": "linear foot (lf)",
+    "weightPerUnit": 3.3
+  }
 ]
