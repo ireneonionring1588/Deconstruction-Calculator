@@ -13,7 +13,7 @@
   },
   {
     "name": "Exterior Roofing - Wood shingle",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 3.5
   },
@@ -85,7 +85,7 @@
   },
   {
     "name": "Exterior Doors - Wood",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "each (ea)",
     "weightPerUnit": 70.0
   },
@@ -133,7 +133,7 @@
   },
   {
     "name": "Exterior Siding - Wood",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 2.5
   },
@@ -151,7 +151,7 @@
   },
   {
     "name": "Exterior - Trim",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 0.8
   },
@@ -169,13 +169,13 @@
   },
   {
     "name": "Exterior Soffit Boards/Covers - wood",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 1.2
   },
   {
     "name": "Exterior - Porch/deck",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 2.0
   },
@@ -205,7 +205,7 @@
   },
   {
     "name": "Exterior Miscellaneous Materials - Wood",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "pound (lb)",
     "weightPerUnit": 1.0
   },
@@ -217,7 +217,7 @@
   },
   {
     "name": "Interior Doors - Solid",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "each (ea)",
     "weightPerUnit": 70.0
   },
@@ -241,13 +241,13 @@
   },
   {
     "name": "Interior Wall Cladding - Wood (Shiplap, Bead board, etc)",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 2.5
   },
   {
     "name": "Interior - Trim",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 0.8
   },
@@ -301,13 +301,13 @@
   },
   {
     "name": "Interior Floor Underlayment - Shiplap",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 2.5
   },
   {
     "name": "Interior Floor Underlayment - 1x",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 2.0
   },
@@ -325,13 +325,13 @@
   },
   {
     "name": "Interior Subfloor - Shiplap",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "square foot (sq ft)",
     "weightPerUnit": 2.5
   },
   {
     "name": "Interior - Staircase/banister/handrails",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "each (ea)",
     "weightPerUnit": 200.0
   },
@@ -469,79 +469,79 @@
   },
   {
     "name": "Roof Structure - Engineered trusses",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "each (ea)",
     "weightPerUnit": 50.0
   },
   {
     "name": "Roof Structure - Rafters - 2x4",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 1.3
   },
   {
     "name": "Roof Structure - Rafters - 2x6",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 2.0
   },
   {
     "name": "Roof Structure - Rafters - 2x8",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 2.7
   },
   {
     "name": "Roof Structure - Rafters - 2x10",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 3.3
   },
   {
     "name": "Ceiling Structure (joists)- 2x4",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 1.3
   },
   {
     "name": "Ceiling Structure (joists)- 2x6",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 2.0
   },
   {
     "name": "Wall Structure - 2x4",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 1.3
   },
   {
     "name": "Wall Structure - 2x6",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 2.0
   },
   {
     "name": "Floor Structure - 2x4",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 1.3
   },
   {
     "name": "Floor Structure - 2x6",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 2.0
   },
   {
     "name": "Floor Structure - 2x8",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 2.7
   },
   {
     "name": "Floor Structure - 2x10",
-    "category": "Dimensional Lumber*",
+    "category": "Dimensional Lumber",
     "unit": "linear foot (lf)",
     "weightPerUnit": 3.3
   }
