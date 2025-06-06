@@ -420,49 +420,49 @@
     "weightPerUnit": 12.5
   },
   {
-    "name": "Interior Appliances - Refrigerator",
+    "name": "Interior Appliances - Refrigerator(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Washer",
+    "name": "Interior Appliances - Washer(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Dryer",
+    "name": "Interior Appliances - Dryer(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Stove",
+    "name": "Interior Appliances - Stove(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Fireplace",
+    "name": "Interior Appliances - Fireplace(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Water heater",
+    "name": "Interior Appliances - Water heater(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Furnace",
+    "name": "Interior Appliances - Furnace(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
   },
   {
-    "name": "Interior Appliances - Mini-Splits",
+    "name": "Interior Appliances - Mini-Splits(6 years or newer)",
     "category": "Mixed Metals",
     "unit": "each (ea)",
     "weightPerUnit": 150.0
