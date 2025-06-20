@@ -25,7 +25,7 @@
   },
   {
     "name": "Exterior Windows - Wood",
-    "category": "Glass",
+    "category": "Dimensional Lumber",
     "unit": "ea",
     "weightPerUnit": 60.0
   },
@@ -49,7 +49,7 @@
   },
   {
     "name": "Exterior - Skylights",
-    "category": "Glass",
+    "category": "Mixed Metals",
     "unit": "ea",
     "weightPerUnit": 40.0
   },
@@ -69,19 +69,19 @@
     "name": "Exterior Chimney - Brick",
     "category": "Clay Bricks",
     "unit": "ea",
-    "weightPerUnit": 500.0
+    "weightPerUnit": 3000.0
   },
   {
     "name": "Exterior Chimney - Stone",
     "category": "Concrete",
     "unit": "ea",
-    "weightPerUnit": 500.0
+    "weightPerUnit": 3000.0
   },
   {
     "name": "Exterior Chimney - Cinder block",
     "category": "Concrete",
     "unit": "ea",
-    "weightPerUnit": 500.0
+    "weightPerUnit": 2000.0
   },
   {
     "name": "Exterior Doors - Wood",
@@ -339,13 +339,13 @@
     "name": "Interior Insulation - Rigid Foam",
     "category": "PS",
     "unit": "sq ft",
-    "weightPerUnit": 2.0
+    "weightPerUnit": 0.2
   },
   {
     "name": "Interior Insulation - Fiberglass",
     "category": "Fiberglass Insulation",
     "unit": "sq ft",
-    "weightPerUnit": 2.0
+    "weightPerUnit": 1.0
   },
   {
     "name": "Interior Insulation - Blown in (Ragwool, Denim, Cotton, Fiber)",
@@ -393,7 +393,7 @@
     "name": "Interior Cabinets - Kitchen Island",
     "category": "Medium-density Fiberboard",
     "unit": "ea",
-    "weightPerUnit": 50.0
+    "weightPerUnit": 200.0
   },
   {
     "name": "Interior Cabinets - Bathroom Vanity",
@@ -411,13 +411,13 @@
     "name": "Interior Countertops - Stone",
     "category": "Concrete",
     "unit": "sq ft",
-    "weightPerUnit": 2.0
+    "weightPerUnit": 15.0
   },
   {
     "name": "Interior Countertops - Concrete",
     "category": "Concrete",
     "unit": "sq ft",
-    "weightPerUnit": 12.5
+    "weightPerUnit": 18.0
   },
   {
     "name": "Interior Appliances - Refrigerator(6 years or newer)",
@@ -471,7 +471,7 @@
     "name": "Roof Structure - Engineered trusses",
     "category": "Dimensional Lumber",
     "unit": "ea",
-    "weightPerUnit": 50.0
+    "weightPerUnit": 150.0
   },
   {
     "name": "Roof Structure - Rafters - 2x4",
